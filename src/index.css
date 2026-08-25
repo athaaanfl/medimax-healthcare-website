@@ -1,0 +1,84 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main > section,
+main > .home-cta-footer,
+main > .about-cta-footer,
+main > .services-cta-footer,
+main > .ob-cta-footer {
+  scroll-margin-top: 68px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-deep-teal);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--teal {
+  background: var(--color-teal);
+  color: var(--color-white);
+}
+.btn--teal:hover {
+  background: var(--color-deep-teal);
+  color: var(--color-white);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-deep-teal);
+  border-color: var(--color-border-input);
+}
+.btn--outline:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.btn--shadow {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn--lime {
+  background: var(--color-lime);
+  color: var(--color-deep-teal);
+}
+
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
