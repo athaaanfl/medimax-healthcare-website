@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './Home.css';
 
 const SERVICES = [
@@ -50,6 +51,7 @@ const OTHER_CLIENTS = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
     <>
       <SiteNav />
@@ -64,21 +66,21 @@ export default function Home() {
               <img src="/assets/hero.webp" alt="Indonesian doctor with modern medical equipment" className="home-hero__photo" />
             </div>
             <div className="home-hero__copy">
-              <h1 className="home-hero__title">Your Trusted Partner for Medical Equipment Solutions in Indonesia</h1>
-              <p className="home-hero__subtitle">Serving healthcare facilities across Indonesia with maintenance, procurement, distribution, and digital health solutions.</p>
+              <h1 className="home-hero__title">{t.home.heroTitle}</h1>
+              <p className="home-hero__subtitle">{t.home.heroSubtitle}</p>
               <div className="home-hero__ctas">
-                <Link to="/contact" className="btn btn--teal">Consultation <span aria-hidden="true">→</span></Link>
-                <Link to="/products" className="btn btn--outline">View Product Catalog</Link>
+                <Link to="/contact" className="btn btn--teal">{t.nav.consultation}</Link>
+                <Link to="/products" className="btn btn--outline">{t.home.viewCatalog}</Link>
               </div>
               <div className="home-hero__stats">
-                <div><div className="home-hero__stat-num">100+</div><div className="home-hero__stat-label">Hospitals Served</div></div>
-                <div><div className="home-hero__stat-num">15+</div><div className="home-hero__stat-label">Global Partners</div></div>
-                <div><div className="home-hero__stat-num">3</div><div className="home-hero__stat-label">National Certifications</div></div>
+                <div><div className="home-hero__stat-num">100+</div><div className="home-hero__stat-label">{t.home.statHospitals}</div></div>
+                <div><div className="home-hero__stat-num">15+</div><div className="home-hero__stat-label">{t.home.statPartners}</div></div>
+                <div><div className="home-hero__stat-num">3</div><div className="home-hero__stat-label">{t.home.statCertifications}</div></div>
               </div>
             </div>
           </div>
           <div className="home-marquee-wrap">
-            <p className="home-marquee-label">Business Partners</p>
+            <p className="home-marquee-label">{t.home.businessPartners}</p>
             <div className="home-marquee-mask">
               <div className="home-marquee-track">
                 {PARTNER_LOOP.map((p, i) => (
@@ -95,11 +97,11 @@ export default function Home() {
           <div className="home-section__blob home-section__blob--lime-tl" />
           <div className="home-section__inner">
             <div className="home-section__head">
-              <h2 className="home-h2">Our Product</h2>
-              <Link to="/products" className="home-view-all">View all products →</Link>
+              <h2 className="home-h2">{t.home.ourProduct}</h2>
+              <Link to="/products" className="home-view-all">{t.home.viewAllProducts}</Link>
             </div>
-            <p className="home-lead">Authorized Partner &amp; Distributor of Medical Device and Consumable</p>
-            <p className="home-body-lg">Medical Consumables, Medical Accessories (ECG, NIBP, SpO2, IBP cables, etc.), Spare Parts (flow sensor, oxygen sensor, ESU cables), Medical Chart Papers (ECG, EEG, CTG), USG Papers, Medical Devices &amp; Equipment (non-radiation equipment — patient monitor, dialysis machine, and other medical equipment), and Dental Products (consumables, chair, accessories).</p>
+            <p className="home-lead">{t.home.productLead}</p>
+            <p className="home-body-lg">{t.home.productBody}</p>
             <div className="home-featured-grid">
               {FEATURED.map((f) => (
                 <Link to={f.href} key={f.name} className="home-featured-card">
@@ -122,10 +124,10 @@ export default function Home() {
           <div className="home-section__inner">
             <div className="home-section__head">
               <div>
-                <h2 className="home-h2">Our Services</h2>
-                <p className="home-services-sub">Healthcare Service Provider in Various Category</p>
+                <h2 className="home-h2">{t.home.ourServices}</h2>
+                <p className="home-services-sub">{t.home.servicesSub}</p>
               </div>
-              <Link to="/services" className="home-view-all">All services →</Link>
+              <Link to="/services" className="home-view-all">{t.home.allServices}</Link>
             </div>
             <div className="home-services-grid">
               {SERVICES.map((s) => (
@@ -136,7 +138,7 @@ export default function Home() {
                   <div className="home-service-card__body">
                     <span className="home-service-card__title">{s.title}</span>
                     <span className="home-service-card__desc">{s.desc}</span>
-                    <span className="home-service-card__link">Learn more →</span>
+                    <span className="home-service-card__link">{t.home.learnMore}</span>
                   </div>
                 </Link>
               ))}
@@ -148,8 +150,8 @@ export default function Home() {
           <div className="home-section__blob home-section__blob--lime-tr" />
           <div className="home-section__blob home-section__blob--teal-bl" />
           <div className="home-section__inner">
-            <h2 className="home-h2">Our Brand</h2>
-            <p className="home-brand-sub">Technology and clinical consumables supporting healthcare operations in Indonesia.</p>
+            <h2 className="home-h2">{t.home.ourBrand}</h2>
+            <p className="home-brand-sub">{t.home.brandSub}</p>
             <div className="home-brand-grid">
               <div className="home-brand-card" style={{ borderColor: '#8AA827' }}>
                 <div className="home-brand-card__badge" style={{ background: '#8AA827' }}>
@@ -215,7 +217,7 @@ export default function Home() {
           <div className="home-section__blob home-section__blob--lime-mid" />
           <div className="home-section__inner">
             <div style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
-              <h2 className="home-h2">What Our Partners Say</h2>
+              <h2 className="home-h2">{t.home.partnersSay}</h2>
             </div>
             <div className="home-testimonials-grid">
               {TESTIMONIALS.map((t) => (
@@ -225,7 +227,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="home-trusted-label">Trusted also by</p>
+            <p className="home-trusted-label">{t.home.trustedAlso}</p>
             <div className="home-trusted-logos">
               {OTHER_CLIENTS.map((c) => (
                 <img key={c.name} src={c.logo} alt={c.name} style={{ height: 38, maxWidth: 130, objectFit: 'contain', opacity: 0.85 }} />
@@ -237,11 +239,11 @@ export default function Home() {
         <section className="home-cta">
           <div className="home-cta__radial" />
           <div className="home-cta__inner">
-            <h2 className="home-cta__title">Ready to Upgrade Your Facility?</h2>
-            <p className="home-cta__desc">Talk to our team about your medical equipment needs — from procurement planning to installation and ongoing maintenance.</p>
+            <h2 className="home-cta__title">{t.home.ctaTitle}</h2>
+            <p className="home-cta__desc">{t.home.ctaDesc}</p>
             <div className="home-cta__actions">
-              <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
-              <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
+              <Link to="/contact" className="btn btn--teal btn--shadow">{t.nav.consultation}</Link>
+              <a href="https://wa.me/6281266000031" className="btn btn--outline">{t.nav.chatWhatsapp}</a>
             </div>
           </div>
         </section>

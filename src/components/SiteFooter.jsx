@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './SiteFooter.css';
 
 const PRODUCT_CATEGORIES = [
@@ -12,6 +13,7 @@ const PRODUCT_CATEGORIES = [
 ];
 
 export default function SiteFooter() {
+  const { t } = useLanguage();
   return (
     <footer className="site-footer">
       <div className="site-footer__blob site-footer__blob--teal" />
@@ -20,33 +22,33 @@ export default function SiteFooter() {
         <div className="site-footer__grid">
           <div className="site-footer__brand">
             <img src="/assets/medimax-vertical.svg" alt="MediMax Healthcare" style={{ height: 56, display: 'block' }} />
-            <p className="site-footer__blurb">Mitra Terpercaya untuk Solusi Peralatan Medis di Indonesia</p>
+            <p className="site-footer__blurb">{t.footer.blurb}</p>
           </div>
 
           <div className="site-footer__col">
-            <span className="site-footer__heading">COMPANY</span>
-            <Link to="/about">About Us</Link>
-            <Link to="/our-brand">Our Brand</Link>
-            <Link to="/contact">Contact</Link>
+            <span className="site-footer__heading">{t.footer.company}</span>
+            <Link to="/about">{t.footer.aboutUs}</Link>
+            <Link to="/our-brand">{t.footer.ourBrand}</Link>
+            <Link to="/contact">{t.footer.contact}</Link>
           </div>
 
           <div className="site-footer__col">
-            <span className="site-footer__heading">SERVICES</span>
-            <Link to="/services">Repair &amp; Maintenance</Link>
-            <Link to="/services">Equipment Procurement</Link>
-            <Link to="/services">Distribution</Link>
-            <Link to="/services">Manpower &amp; Outsourcing</Link>
+            <span className="site-footer__heading">{t.footer.services}</span>
+            <Link to="/services">{t.footer.repairMaintenance}</Link>
+            <Link to="/services">{t.footer.equipmentProcurement}</Link>
+            <Link to="/services">{t.footer.distribution}</Link>
+            <Link to="/services">{t.footer.manpowerOutsourcing}</Link>
           </div>
 
           <div className="site-footer__col">
-            <span className="site-footer__heading">PRODUCTS</span>
+            <span className="site-footer__heading">{t.footer.products}</span>
             {PRODUCT_CATEGORIES.map((cat) => (
-              <Link key={cat} to="/products">{cat}</Link>
+              <Link key={cat} to="/products">{t.footer.categories[cat]}</Link>
             ))}
           </div>
 
           <div className="site-footer__col site-footer__col--contact">
-            <span className="site-footer__heading">GET IN TOUCH</span>
+            <span className="site-footer__heading">{t.footer.getInTouch}</span>
             <span className="site-footer__address">
               Komplek Botania Block B23 No 2A,<br />
               Belian, Batam Kota,<br />
@@ -58,7 +60,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="site-footer__licenses">
-          <span className="site-footer__heading">LICENSES &amp; CERTIFICATIONS</span>
+          <span className="site-footer__heading">{t.footer.licenses}</span>
           <div className="site-footer__license-pills">
             <span className="site-footer__pill">S-IDAK</span>
             <span className="site-footer__pill">NIB</span>
@@ -67,8 +69,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="site-footer__bottom">
-          <span>© 2026 PT MediMax Healthcare Indonesia. All rights reserved.</span>
-          <span>Licensed medical device distributor — CDAKB, S-IDAK, NIB certified.</span>
+          <span>{t.footer.rights}</span>
         </div>
       </div>
     </footer>

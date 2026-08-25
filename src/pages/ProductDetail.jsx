@@ -57,14 +57,9 @@ export default function ProductDetail() {
             <div>
               <span className="product-detail-catlabel">{product.catLabel}</span>
               <h1 className="product-detail-name">{product.name}</h1>
-              {product.badge && (
-                <span className="product-detail-badge" style={{ background: product.badgeBg, color: product.badgeFg }}>
-                  {product.badge}
-                </span>
-              )}
               <p className="product-detail-desc">{product.desc}</p>
               <div className="product-detail-actions">
-                <Link to="/contact" className="btn btn--teal">Request Quote →</Link>
+                <Link to="/contact" className="btn btn--teal">Request Quote</Link>
                 <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
               </div>
             </div>

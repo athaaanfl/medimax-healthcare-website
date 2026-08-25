@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './SiteNav.css';
 
-const LINKS = [
-  { label: 'Home', href: '/', id: 'home' },
-  { label: 'About Us', href: '/about', id: 'about' },
-  { label: 'Products', href: '/products', id: 'products' },
-  { label: 'Services', href: '/services', id: 'services' },
-  { label: 'Our Brand', href: '/our-brand', id: 'brand' },
-  { label: 'Contact', href: '/contact', id: 'contact' },
-];
+const LINK_IDS = ['home', 'about', 'products', 'services', 'brand', 'contact'];
+const LINK_HREFS = {
+  home: '/',
+  about: '/about',
+  products: '/products',
+  services: '/services',
+  brand: '/our-brand',
+  contact: '/contact',
+};
 
 function activeIdForPath(pathname) {
   if (pathname === '/') return 'home';
@@ -25,6 +27,7 @@ export default function SiteNav({ fixed = true }) {
   const location = useLocation();
   const active = activeIdForPath(location.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   return (
     <>
@@ -35,25 +38,25 @@ export default function SiteNav({ fixed = true }) {
             <img src="/assets/medimax-horizontal.svg" alt="MediMax Healthcare" className="site-nav__logo" />
           </Link>
           <nav className="site-nav__links">
-            {LINKS.map((l) => (
+            {LINK_IDS.map((id) => (
               <Link
-                key={l.id}
-                to={l.href}
-                className={`site-nav__link ${l.id === active ? 'site-nav__link--active' : ''}`}
+                key={id}
+                to={LINK_HREFS[id]}
+                className={`site-nav__link ${id === active ? 'site-nav__link--active' : ''}`}
               >
-                {l.label}
+                {t.nav[id]}
               </Link>
             ))}
           </nav>
           <div className="site-nav__actions">
-            <div className="site-nav__lang">
-              <span className="site-nav__lang-active">EN</span>
-              <span className="site-nav__lang-inactive">ID</span>
-            </div>
+            <button type="button" className="site-nav__lang" onClick={() => setLang(lang === 'en' ? 'id' : 'en')} aria-label="Switch language">
+              <span className={lang === 'en' ? 'site-nav__lang-active' : 'site-nav__lang-inactive'}>EN</span>
+              <span className={lang === 'id' ? 'site-nav__lang-active' : 'site-nav__lang-inactive'}>ID</span>
+            </button>
             <a href="https://wa.me/6281266000031" title="WhatsApp" className="site-nav__whatsapp">
               <img src="/assets/whatsapp-color.svg" alt="WhatsApp" style={{ width: 20, height: 20, display: 'block' }} />
             </a>
-            <Link to="/contact" className="site-nav__cta">Consultation</Link>
+            <Link to="/contact" className="site-nav__cta">{t.nav.consultation}</Link>
           </div>
           <button
             type="button"
@@ -70,23 +73,27 @@ export default function SiteNav({ fixed = true }) {
 
         <div className={`site-nav__mobile ${menuOpen ? 'is-open' : ''}`}>
           <nav className="site-nav__mobile-links">
-            {LINKS.map((l) => (
+            {LINK_IDS.map((id) => (
               <Link
-                key={l.id}
-                to={l.href}
+                key={id}
+                to={LINK_HREFS[id]}
                 onClick={() => setMenuOpen(false)}
-                className={`site-nav__mobile-link ${l.id === active ? 'site-nav__mobile-link--active' : ''}`}
+                className={`site-nav__mobile-link ${id === active ? 'site-nav__mobile-link--active' : ''}`}
               >
-                {l.label}
+                {t.nav[id]}
               </Link>
             ))}
           </nav>
           <div className="site-nav__mobile-actions">
+            <button type="button" className="site-nav__lang site-nav__lang--mobile" onClick={() => setLang(lang === 'en' ? 'id' : 'en')} aria-label="Switch language">
+              <span className={lang === 'en' ? 'site-nav__lang-active' : 'site-nav__lang-inactive'}>EN</span>
+              <span className={lang === 'id' ? 'site-nav__lang-active' : 'site-nav__lang-inactive'}>ID</span>
+            </button>
             <a href="https://wa.me/6281266000031" className="site-nav__mobile-whatsapp">
               <img src="/assets/whatsapp-color.svg" alt="" style={{ width: 18, height: 18, display: 'block' }} />
-              Chat on WhatsApp
+              {t.nav.chatWhatsapp}
             </a>
-            <Link to="/contact" className="site-nav__cta" onClick={() => setMenuOpen(false)}>Consultation</Link>
+            <Link to="/contact" className="site-nav__cta" onClick={() => setMenuOpen(false)}>{t.nav.consultation}</Link>
           </div>
         </div>
       </header>
