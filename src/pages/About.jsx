@@ -38,42 +38,44 @@ export default function About() {
 
         <section className="about-section">
           <div className="about-grid">
-            <div className="about-copy">
-              <h2 className="about-h2">About Us.</h2>
-              <p className="about-p"><b>PT MediMax Healthcare</b> Indonesia started it's journey in 2023, with the vision to help the healthcare organizations and providers in Indonesia to deliver exceptional patient care.</p>
-              <p className="about-p">We understand the critical role medical equipment, devices and consumables plays in saving lives and improving patient outcomes.</p>
-              <p className="about-p">That's why we go extra mile to offer efficient, effective, and cost-friendly solutions to keep your organization to be one step ahead in patient care.</p>
-            </div>
-            <div className="about-map-wrap">
-              <div className="about-map">
-                <iframe
-                  title="MediMax location"
-                  src="https://maps.google.com/maps?q=1.108658129243563,104.08896268611274&z=17&output=embed"
-                  className="about-map__frame"
-                  loading="lazy"
-                />
-                <a href="https://maps.app.goo.gl/QHriXXxEwn8G9riv5" target="_blank" rel="noreferrer" className="about-map__overlay" />
+            <div className="about-left">
+              <div className="about-copy">
+                <h2 className="about-h2">About Us.</h2>
+                <p className="about-p"><b>PT MediMax Healthcare</b> Indonesia started it's journey in 2023, with the vision to help the healthcare organizations and providers in Indonesia to deliver exceptional patient care.</p>
+                <p className="about-p">We understand the critical role medical equipment, devices and consumables plays in saving lives and improving patient outcomes.</p>
+                <p className="about-p">That's why we go extra mile to offer efficient, effective, and cost-friendly solutions to keep your organization to be one step ahead in patient care.</p>
+              </div>
+              <div className="about-map-wrap">
+                <div className="about-map">
+                  <iframe
+                    title="MediMax location"
+                    src="https://maps.google.com/maps?q=1.108658129243563,104.08896268611274&z=17&output=embed"
+                    className="about-map__frame"
+                    loading="lazy"
+                  />
+                  <a href="https://maps.app.goo.gl/QHriXXxEwn8G9riv5" target="_blank" rel="noreferrer" className="about-map__overlay" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="about-pillars">
-            <h2 className="about-h2">What Sets Us Apart.</h2>
-            <div className="about-pillars__list">
-              {PILLARS.map((p, i) => (
-                <div className="about-pillar" key={p.title}>
-                  <button className="about-pillar__head" onClick={() => setOpenIndex(openIndex === i ? -1 : i)}>
-                    <span className="about-pillar__title">{p.title}</span>
-                    <span className="about-pillar__toggle">
-                      <span className="about-pillar__toggle-bar" />
-                      <span className={`about-pillar__toggle-bar about-pillar__toggle-bar--rot ${openIndex === i ? 'is-open' : ''}`} />
-                    </span>
-                  </button>
-                  <div className={`about-pillar__body ${openIndex === i ? 'is-open' : ''}`}>
-                    <p className="about-pillar__desc">{p.desc}</p>
+            <div className="about-pillars">
+              <h2 className="about-h2">What Sets Us Apart.</h2>
+              <div className="about-pillars__list">
+                {PILLARS.map((p, i) => (
+                  <div className="about-pillar" key={p.title}>
+                    <button className="about-pillar__head" onClick={() => setOpenIndex(openIndex === i ? -1 : i)}>
+                      <span className="about-pillar__title">{p.title}</span>
+                      <span className="about-pillar__toggle">
+                        <span className="about-pillar__toggle-bar" />
+                        <span className={`about-pillar__toggle-bar about-pillar__toggle-bar--rot ${openIndex === i ? 'is-open' : ''}`} />
+                      </span>
+                    </button>
+                    <div className={`about-pillar__body ${openIndex === i ? 'is-open' : ''}`}>
+                      <p className="about-pillar__desc">{p.desc}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -83,7 +85,10 @@ export default function About() {
           <p className="about-cta__desc">Talk to our team about your medical equipment needs — from procurement planning to installation and ongoing maintenance.</p>
           <div className="about-cta__actions">
             <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
-            <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
+            <a href="https://wa.me/6281266000031" className="wa-cta">
+              <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
+              Chat on WhatsApp
+            </a>
           </div>
         </section>
       </main>

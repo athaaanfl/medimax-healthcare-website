@@ -30,46 +30,65 @@ const SECTIONS = [
   },
 ];
 
-const PAIRS = [[SECTIONS[0], SECTIONS[1]], [SECTIONS[2], SECTIONS[3]]];
+const PATTERNS = {
+  repair: (
+    <>
+      <div className="sp-blob sp-repair-1" />
+      <div className="sp-blob sp-repair-2" />
+      <div className="sp-blob sp-repair-3" />
+    </>
+  ),
+  procurement: (
+    <>
+      <div className="sp-blob sp-procurement-1" />
+      <div className="sp-blob sp-procurement-2" />
+      <div className="sp-blob sp-procurement-3" />
+      <div className="sp-blob sp-procurement-4" />
+    </>
+  ),
+  distribution: (
+    <>
+      <div className="sp-blob sp-distribution-1" />
+      <div className="sp-blob sp-distribution-2" />
+    </>
+  ),
+  manpower: (
+    <>
+      <div className="sp-blob sp-manpower-1" />
+      <div className="sp-blob sp-manpower-2" />
+      <div className="sp-blob sp-manpower-3" />
+    </>
+  ),
+};
 
 export default function Services() {
   return (
     <>
       <SiteNav />
       <main className="services">
-        <div className="services-blob services-blob--lime-top" />
-        <div className="services-blob services-blob--teal-1" />
-        <div className="services-blob services-blob--deep" />
-        <div className="services-blob services-blob--lime-1" />
-        <div className="services-blob services-blob--teal-2" />
-        <div className="services-blob services-blob--lime-2" />
-
-        {PAIRS.map((pair, pi) => (
-          <section key={pi} className="services-section-group">
-            {pair.map((s) => (
-              <div id={s.anchor} key={s.anchor} className={`services-pair-block services-pair-block--${s.bg}`}>
-                <div className={`services-section__grid ${s.reverse ? 'services-section__grid--reverse' : ''}`}>
-                  <div className="services-section__copy">
-                    <h2 className="services-h2">{s.title}</h2>
-                    <p className="services-desc">{s.desc}</p>
-                    <div className="services-points">
-                      {s.points.map((p) => (
-                        <div className="services-point" key={p}>
-                          <span className="services-point__icon">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6E8A1C" strokeWidth="3"><path d="M4 12.5l5 5L20 6.5" /></svg>
-                          </span>
-                          <span>{p}</span>
-                        </div>
-                      ))}
+        {SECTIONS.map((s) => (
+          <section id={s.anchor} key={s.anchor} className={`services-full services-full--${s.bg}`}>
+            <div className="services-pattern">{PATTERNS[s.anchor]}</div>
+            <div className={`services-section__grid ${s.reverse ? 'services-section__grid--reverse' : ''}`}>
+              <div className="services-section__copy">
+                <h2 className="services-h2">{s.title}</h2>
+                <p className="services-desc">{s.desc}</p>
+                <div className="services-points">
+                  {s.points.map((p) => (
+                    <div className="services-point" key={p}>
+                      <span className="services-point__icon">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6E8A1C" strokeWidth="3"><path d="M4 12.5l5 5L20 6.5" /></svg>
+                      </span>
+                      <span>{p}</span>
                     </div>
-                    <Link to="/contact" className="services-cta-link">Request This Service</Link>
-                  </div>
-                  <div className="services-section__photo">
-                    <img src={s.img} alt={s.title} />
-                  </div>
+                  ))}
                 </div>
+                <Link to="/contact" className="services-cta-link">Request This Service</Link>
               </div>
-            ))}
+              <div className="services-section__photo">
+                <img src={s.img} alt={s.title} />
+              </div>
+            </div>
           </section>
         ))}
 
@@ -80,7 +99,10 @@ export default function Services() {
             <p className="services-final__desc">Talk to our team for a free consultation. We'll help you identify the right solution for your facility.</p>
             <div className="services-final__actions">
               <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
-              <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
+              <a href="https://wa.me/6281266000031" className="wa-cta">
+                <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
         </section>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 import CategoryIcon from '../components/CategoryIcon.jsx';
@@ -7,7 +7,10 @@ import { CATEGORIES, PRODUCTS } from '../data/products.js';
 import './Products.css';
 
 export default function Products() {
-  const [category, setCategory] = useState('All Products');
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const initialCategory = CATEGORIES.includes(categoryParam) ? categoryParam : 'All Products';
+  const [category, setCategory] = useState(initialCategory);
   const [query, setQuery] = useState('');
 
   const visibleProducts = useMemo(() => {
@@ -93,7 +96,10 @@ export default function Products() {
             <p className="products-final__desc">Our full catalog includes more products than shown here. Talk to our team about your specific equipment requirements.</p>
             <div className="products-final__actions">
               <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
-              <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
+              <a href="https://wa.me/6281266000031" className="wa-cta">
+                <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
         </section>

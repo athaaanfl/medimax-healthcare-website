@@ -108,7 +108,7 @@
   gap: 10px;
 }
 
-.site-footer__pill {
+a.site-footer__pill {
   border: 1px solid rgba(179, 212, 53, 0.35);
   color: var(--color-lime);
   font-size: 12px;
@@ -116,6 +116,13 @@
   padding: 6px 14px;
   border-radius: 999px;
   white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+a.site-footer__pill:hover {
+  color: var(--color-lime);
+  background: rgba(179, 212, 53, 0.12);
+  border-color: rgba(179, 212, 53, 0.6);
 }
 
 .site-footer__bottom {

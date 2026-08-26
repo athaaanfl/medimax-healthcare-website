@@ -65,17 +65,23 @@
 .about-grid {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 12px 32px 0;
+  padding: 12px 32px;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: center;
+  align-items: start;
   width: 100%;
   box-sizing: border-box;
 }
 
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
 .about-copy {
-  padding-left: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,12 +106,10 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .about-map {
   width: 100%;
-  max-width: 340px;
-  height: 210px;
+  height: 240px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -123,15 +127,10 @@
   inset: 0;
 }
 .about-pillars {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 10px 32px 8px 64px;
-  width: 100%;
-  box-sizing: border-box;
+  min-width: 0;
 }
 .about-pillars__list {
   margin-top: 10px;
-  max-width: 900px;
 }
 .about-pillar {
   border-bottom: 1px solid var(--color-border-input);
@@ -221,12 +220,9 @@
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
-  }
-  .about-copy {
-    padding-left: 0;
+    gap: 36px;
   }
   .about-pillars {
-    padding-left: 32px;
-    margin-top: 28px;
+    margin-top: 8px;
   }
 }

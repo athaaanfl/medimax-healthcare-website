@@ -131,14 +131,13 @@ export default function Home() {
             </div>
             <div className="home-services-grid">
               {SERVICES.map((s) => (
-                <Link to="/services" key={s.key} className="home-service-card">
+                <Link to={`/services#${s.key}`} key={s.key} className="home-service-card">
                   <div className="home-service-card__photo">
                     <img src={s.photo} alt={s.title} />
                   </div>
                   <div className="home-service-card__body">
                     <span className="home-service-card__title">{s.title}</span>
                     <span className="home-service-card__desc">{s.desc}</span>
-                    <span className="home-service-card__link">{t.home.learnMore}</span>
                   </div>
                 </Link>
               ))}
@@ -153,62 +152,23 @@ export default function Home() {
             <h2 className="home-h2">{t.home.ourBrand}</h2>
             <p className="home-brand-sub">{t.home.brandSub}</p>
             <div className="home-brand-grid">
-              <div className="home-brand-card" style={{ borderColor: '#8AA827' }}>
-                <div className="home-brand-card__badge" style={{ background: '#8AA827' }}>
+              <Link to="/our-brand#meditrack" className="home-brand-card" style={{ background: '#8AA827' }}>
+                <div className="home-brand-card__badge" style={{ borderColor: '#8AA827' }}>
                   <div className="home-brand-card__badge-inner">
                     <img src="/assets/meditrack-mark.svg" alt="MediTrack" style={{ height: 50, display: 'block' }} />
                   </div>
                 </div>
                 <p className="home-brand-card__desc">Your number one medical equipment maintenance and asset management company. Track the most important medical equipment and maintain your assets in real time to optimize your day-to-day operations.</p>
-                <div className="home-brand-card__panel">
-                  <div className="home-brand-card__panel-head">
-                    <span style={{ fontWeight: 700, color: '#0C3832' }}>Dashboard</span>
-                    <span className="home-brand-card__search">Search any medical assets...</span>
-                  </div>
-                  <div className="home-brand-card__stats3">
-                    <div className="home-brand-card__stat"><div className="home-brand-card__stat-label">TOTAL EQUIPMENT</div><div className="home-brand-card__stat-value">2,420</div></div>
-                    <div className="home-brand-card__stat"><div className="home-brand-card__stat-label">CALIBRATION</div><div className="home-brand-card__stat-value">86</div></div>
-                    <div className="home-brand-card__stat"><div className="home-brand-card__stat-label">MAINTENANCE</div><div className="home-brand-card__stat-value">152</div></div>
-                  </div>
-                  <div className="home-brand-card__tasks">
-                    <span>Total Open Tasks <b style={{ color: '#117A85' }}>23</b></span>
-                    <span>Upcoming Maintenance <b style={{ color: '#117A85' }}>10</b></span>
-                    <span>Completed Today <b style={{ color: '#117A85' }}>8</b></span>
-                  </div>
-                </div>
-              </div>
+              </Link>
 
-              <div className="home-brand-card" style={{ borderColor: '#117A85' }}>
-                <div className="home-brand-card__badge" style={{ background: '#117A85' }}>
+              <Link to="/our-brand#medigraph" className="home-brand-card" style={{ background: '#117A85' }}>
+                <div className="home-brand-card__badge" style={{ borderColor: '#117A85' }}>
                   <div className="home-brand-card__badge-inner">
                     <img src="/assets/medigraph-mark.svg" alt="MediGraph" style={{ height: 50, display: 'block' }} />
                   </div>
                 </div>
                 <p className="home-brand-card__desc">A medical graph paper brand supplying ECG, CTG, and EEG recording paper — in both disposable and reusable formats — for hospitals to print patient diagnostic and monitoring records.</p>
-                <div className="home-brand-card__panel">
-                  <div className="home-brand-card__panel-head">
-                    <span style={{ fontWeight: 700, color: '#0C3832' }}>Compatible Machine Types</span>
-                    <span style={{ marginLeft: 'auto', color: '#117A85', fontWeight: 600 }}>3 formats</span>
-                  </div>
-                  <div style={{ display: 'flex', gap: 8, padding: '14px 16px 0' }}>
-                    <span className="home-brand-card__tag">ECG</span>
-                    <span className="home-brand-card__tag">CTG</span>
-                    <span className="home-brand-card__tag">EEG</span>
-                  </div>
-                  <div className="home-brand-card__sample">
-                    <svg viewBox="0 0 400 60" style={{ display: 'block', width: '100%' }}>
-                      <polyline points="0,40 30,38 60,42 90,20 120,32 150,10 180,26 210,15 240,35 270,22 300,38 330,28 360,40 400,32" fill="none" stroke="#0C3832" strokeWidth="2" />
-                    </svg>
-                    <div className="home-brand-card__sample-label">SAMPLE PRINT — RECORDING PAPER</div>
-                  </div>
-                  <div style={{ padding: '0 16px 16px' }}>
-                    <div className="home-brand-card__type-box">
-                      <div className="home-brand-card__stat-label">TYPE</div>
-                      <div className="home-brand-card__stat-value" style={{ fontSize: 15 }}>Disposable &amp; Reusable</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -243,7 +203,10 @@ export default function Home() {
             <p className="home-cta__desc">{t.home.ctaDesc}</p>
             <div className="home-cta__actions">
               <Link to="/contact" className="btn btn--teal btn--shadow">{t.nav.consultation}</Link>
-              <a href="https://wa.me/6281266000031" className="btn btn--outline">{t.nav.chatWhatsapp}</a>
+              <a href="https://wa.me/6281266000031" className="wa-cta">
+                <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
+                {t.nav.chatWhatsapp}
+              </a>
             </div>
           </div>
         </section>

@@ -75,6 +75,31 @@ p {
   color: var(--color-deep-teal);
 }
 
+.wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-lime-tint);
+  border: 1px solid #D8E8A8;
+  border-radius: var(--radius-sm);
+  padding: 13px 22px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--color-deep-teal);
+  transition: border-color 0.15s ease;
+}
+.wa-cta:hover {
+  border-color: #8AA827;
+}
+.wa-cta__icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .section-eyebrow {
   font-size: 12px;
   font-weight: 700;

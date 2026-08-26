@@ -60,7 +60,10 @@ export default function ProductDetail() {
               <p className="product-detail-desc">{product.desc}</p>
               <div className="product-detail-actions">
                 <Link to="/contact" className="btn btn--teal">Request Quote</Link>
-                <a href="https://wa.me/6281266000031" className="btn btn--outline">Chat on WhatsApp</a>
+                <a href="https://wa.me/6281266000031" className="wa-cta">
+                  <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
           </div>

@@ -62,9 +62,9 @@ export default function SiteFooter() {
         <div className="site-footer__licenses">
           <span className="site-footer__heading">{t.footer.licenses}</span>
           <div className="site-footer__license-pills">
-            <span className="site-footer__pill">S-IDAK</span>
-            <span className="site-footer__pill">NIB</span>
-            <span className="site-footer__pill">CDAKB</span>
+            <a href="/documents/S-IDAK-Distribution-License.pdf" download className="site-footer__pill">S-IDAK</a>
+            <a href="/documents/NIB-Business-Registration.pdf" download className="site-footer__pill">NIB</a>
+            <a href="/documents/CDAKB-Certificate.pdf" download className="site-footer__pill">CDAKB</a>
           </div>
         </div>
 

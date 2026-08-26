@@ -2,7 +2,7 @@
   font-family: var(--font-body);
   color: var(--color-deep-teal);
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .contact-blob {
