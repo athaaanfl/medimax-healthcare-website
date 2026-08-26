@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
@@ -12,6 +12,12 @@ export default function Products() {
   const initialCategory = CATEGORIES.includes(categoryParam) ? categoryParam : 'All Products';
   const [category, setCategory] = useState(initialCategory);
   const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    setCategory(CATEGORIES.includes(categoryParam) ? categoryParam : 'All Products');
+    setQuery('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [categoryParam]);
 
   const visibleProducts = useMemo(() => {
     const q = query.trim().toLowerCase();

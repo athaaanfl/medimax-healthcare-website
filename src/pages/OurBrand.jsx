@@ -69,7 +69,7 @@ const MT_FEATURES = [
 ];
 
 const MG_POINTS = [
-  'Compatible with major ECG/EKG, CTG, and EEG machine brands',
+  'Compatible with major ECG, CTG, and EEG machine brands',
   'Consistent print clarity for accurate diagnostic records',
   'Available in thermal and standard recording paper formats',
   'Various roll and fan-fold sizes to match device models',
@@ -258,7 +258,7 @@ export default function OurBrand() {
 
               <div className="ob-area-body">
                 <p className="ob-tagline">Medical Graph &amp; Recording Paper</p>
-                <p className="ob-p">MediGraph is a medical graph paper brand — supplying ECG/EKG, CTG, and EEG recording paper used by hospitals across Indonesia to print patient diagnostic and monitoring records, on par with global producers such as Telepaper.</p>
+                <p className="ob-p">MediGraph is a medical graph paper brand — supplying ECG, CTG, and EEG recording paper used by hospitals across Indonesia to print patient diagnostic and monitoring records, on par with global producers such as Telepaper.</p>
                 <div className="ob-points">
                   {MG_POINTS.map((p) => (
                     <div className="ob-point" key={p}>
