@@ -155,7 +155,7 @@ export default function Home() {
               <Link to="/our-brand#meditrack" className="home-brand-card" style={{ background: '#8AA827' }}>
                 <div className="home-brand-card__badge" style={{ borderColor: '#8AA827' }}>
                   <div className="home-brand-card__badge-inner">
-                    <img src="/assets/meditrack-mark.svg" alt="MediTrack" style={{ height: 50, display: 'block' }} />
+                    <img src="/assets/meditrack-mark.svg" alt="MediTrack" style={{ height: 64, display: 'block' }} />
                   </div>
                 </div>
                 <p className="home-brand-card__desc">Your number one medical equipment maintenance and asset management company. Track the most important medical equipment and maintain your assets in real time to optimize your day-to-day operations.</p>
@@ -164,10 +164,10 @@ export default function Home() {
               <Link to="/our-brand#medigraph" className="home-brand-card" style={{ background: '#117A85' }}>
                 <div className="home-brand-card__badge" style={{ borderColor: '#117A85' }}>
                   <div className="home-brand-card__badge-inner">
-                    <img src="/assets/medigraph-mark.svg" alt="MediGraph" style={{ height: 50, display: 'block' }} />
+                    <img src="/assets/medigraph-mark.svg" alt="MediGraph" style={{ height: 64, display: 'block' }} />
                   </div>
                 </div>
-                <p className="home-brand-card__desc">A medical graph paper brand supplying ECG, CTG, and EEG recording paper — in both disposable and reusable formats — for hospitals to print patient diagnostic and monitoring records.</p>
+                <p className="home-brand-card__desc">A medical graph paper brand supplying ECG, CTG, and EEG recording paper for hospitals to print patient diagnostic and monitoring records.</p>
               </Link>
             </div>
           </div>

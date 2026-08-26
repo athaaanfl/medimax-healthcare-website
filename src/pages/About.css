@@ -190,6 +190,28 @@
   max-width: 70ch;
 }
 
+.about-org {
+  position: relative;
+  z-index: 1;
+  padding: 40px 32px 64px;
+}
+.about-org__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+.about-org .about-h2 {
+  margin-bottom: 8px;
+}
+
+.org-chart-img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 32px auto 0;
+}
+
 .about-cta {
   position: relative;
   z-index: 1;
