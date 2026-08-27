@@ -43,7 +43,7 @@ export default function SiteFooter() {
           <div className="site-footer__col">
             <span className="site-footer__heading">{t.footer.products}</span>
             {PRODUCT_CATEGORIES.map((cat) => (
-              <Link key={cat} to="/products">{t.footer.categories[cat]}</Link>
+              <Link key={cat} to="/products">{t.categories[cat]}</Link>
             ))}
           </div>
 

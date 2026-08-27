@@ -51,6 +51,9 @@
 }
 
 .site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   text-decoration: none;
   white-space: nowrap;
   font-size: 13.5px;
@@ -77,12 +80,6 @@
 
 .site-nav__link--open {
   color: var(--color-teal);
-}
-
-.site-nav__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
 }
 
 .site-nav__chevron {

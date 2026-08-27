@@ -35,15 +35,6 @@ export const translations = {
       equipmentProcurement: 'Equipment Procurement',
       distribution: 'Distribution',
       manpowerOutsourcing: 'Manpower & Outsourcing',
-      categories: {
-        'Diagnostic & Monitoring': 'Diagnostic & Monitoring',
-        'Medical Consumables': 'Medical Consumables',
-        'Life Support': 'Life Support',
-        'Furniture & Mobility': 'Furniture & Mobility',
-        Accessories: 'Accessories',
-        'Surgical Instrument': 'Surgical Instrument',
-        'Medical Paper': 'Medical Paper',
-      },
       rights: '© 2026 PT MediMax Healthcare Indonesia. All rights reserved.',
     },
     home: {
@@ -224,15 +215,6 @@ export const translations = {
       equipmentProcurement: 'Pengadaan Peralatan',
       distribution: 'Distribusi',
       manpowerOutsourcing: 'Tenaga Kerja & Outsourcing',
-      categories: {
-        'Diagnostic & Monitoring': 'Diagnostik & Monitoring',
-        'Medical Consumables': 'Bahan Habis Pakai Medis',
-        'Life Support': 'Alat Bantu Hidup',
-        'Furniture & Mobility': 'Furnitur & Mobilitas',
-        Accessories: 'Aksesoris',
-        'Surgical Instrument': 'Instrumen Bedah',
-        'Medical Paper': 'Kertas Medis',
-      },
       rights: '© 2026 PT MediMax Healthcare Indonesia. Hak cipta dilindungi.',
     },
     home: {

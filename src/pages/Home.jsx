@@ -79,18 +79,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="home-marquee-wrap">
-            <p className="home-marquee-label">{t.home.businessPartners}</p>
-            <div className="home-marquee-mask">
-              <div className="home-marquee-track">
-                {PARTNER_LOOP.map((p, i) => (
-                  <div className="home-marquee-item" key={p.name + i}>
-                    <img src={p.src} alt={p.name} style={{ height: '100%', maxWidth: 140, objectFit: 'contain' }} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </section>
 
         <section className="home-section home-section--white">
@@ -145,7 +133,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-section home-section--white">
+        <section className="home-section home-section--white home-ourbrand">
           <div className="home-section__blob home-section__blob--lime-tr" />
           <div className="home-section__blob home-section__blob--teal-bl" />
           <div className="home-section__inner">
@@ -173,7 +161,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-section home-section--cream">
+        <section className="home-section home-section--cream home-trusted">
+          <div className="home-section__blob home-section__blob--teal-tl" />
+          <div className="home-section__blob home-section__blob--lime-br" />
+          <div className="home-section__inner home-trusted__head">
+            <h2 className="home-h2">{t.home.businessPartners}</h2>
+          </div>
+          <div className="home-marquee-mask home-marquee-mask--lg">
+            <div className="home-marquee-track">
+              {PARTNER_LOOP.map((p, i) => (
+                <div className="home-marquee-item home-marquee-item--lg" key={p.name + i}>
+                  <img src={p.src} alt={p.name} style={{ height: '100%', maxWidth: 240, objectFit: 'contain' }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="home-section home-section--white">
           <div className="home-section__blob home-section__blob--lime-mid" />
           <div className="home-section__inner">
             <div style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
