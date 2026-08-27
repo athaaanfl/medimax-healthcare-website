@@ -1,11 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import { getProductBySlug, getRelatedProducts } from '../data/products.js';
 import { getSpecGroupsForSlug } from '../data/paperSpecs.js';
 import './ProductDetail.css';
 
 export default function ProductDetail() {
+  const { t } = useLanguage();
   const { slug } = useParams();
   const product = getProductBySlug(slug);
 
@@ -15,9 +17,9 @@ export default function ProductDetail() {
         <SiteNav />
         <main className="product-detail">
           <section className="product-detail-notfound">
-            <h1 className="product-detail-notfound__title">Product Not Found</h1>
-            <p className="product-detail-notfound__desc">This product may have been moved or removed from the catalog.</p>
-            <Link to="/products" className="btn btn--teal">Back to Catalog</Link>
+            <h1 className="product-detail-notfound__title">{t.productDetail.notFoundTitle}</h1>
+            <p className="product-detail-notfound__desc">{t.productDetail.notFoundDesc}</p>
+            <Link to="/products" className="btn btn--teal">{t.productDetail.backToCatalog}</Link>
           </section>
         </main>
         <SiteFooter />
@@ -38,7 +40,7 @@ export default function ProductDetail() {
 
         <section className="product-detail-main">
           <div className="product-detail-breadcrumb">
-            <Link to="/products" className="product-detail-breadcrumb__link">Products</Link>
+            <Link to="/products" className="product-detail-breadcrumb__link">{t.nav.products}</Link>
             <span> / </span>
             <span className="product-detail-breadcrumb__cat">{product.catLabel}</span>
             <span> / </span>
@@ -59,10 +61,10 @@ export default function ProductDetail() {
               <h1 className="product-detail-name">{product.name}</h1>
               <p className="product-detail-desc">{product.desc}</p>
               <div className="product-detail-actions">
-                <Link to="/contact" className="btn btn--teal">Request Quote</Link>
+                <Link to="/contact" className="btn btn--teal">{t.productDetail.requestQuote}</Link>
                 <a href="https://wa.me/6281266000031" className="wa-cta">
                   <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
-                  Chat on WhatsApp
+                  {t.nav.chatWhatsapp}
                 </a>
               </div>
             </div>
@@ -72,18 +74,18 @@ export default function ProductDetail() {
         {specGroups.length > 0 && (
           <section className="product-detail-specs">
             <div className="product-detail-specs__inner">
-              <h2 className="product-detail-h2">Compatible Specifications</h2>
-              <p className="product-detail-specs__sub">Machine models and sizes this paper is compatible with.</p>
+              <h2 className="product-detail-h2">{t.productDetail.specsHeading}</h2>
+              <p className="product-detail-specs__sub">{t.productDetail.specsSub}</p>
               <div className="product-detail-specs__list">
                 {specGroups.map((grp) => (
                   <div className="product-detail-specs__group" key={grp.brand}>
                     <h3 className="product-detail-specs__brand">{grp.brand}</h3>
                     <div className="product-detail-specs__table">
                       <div className="product-detail-specs__row product-detail-specs__row--head">
-                        <span className="product-detail-specs__cell product-detail-specs__cell--no">NO</span>
-                        <span className="product-detail-specs__cell product-detail-specs__cell--code">ORIGINAL CODE</span>
-                        <span className="product-detail-specs__cell product-detail-specs__cell--machine">MACHINE MODEL</span>
-                        <span className="product-detail-specs__cell product-detail-specs__cell--size">SIZE</span>
+                        <span className="product-detail-specs__cell product-detail-specs__cell--no">{t.productDetail.specsHeaders.no}</span>
+                        <span className="product-detail-specs__cell product-detail-specs__cell--code">{t.productDetail.specsHeaders.code}</span>
+                        <span className="product-detail-specs__cell product-detail-specs__cell--machine">{t.productDetail.specsHeaders.machine}</span>
+                        <span className="product-detail-specs__cell product-detail-specs__cell--size">{t.productDetail.specsHeaders.size}</span>
                       </div>
                       {grp.rows.map((row, i) => (
                         <div className="product-detail-specs__row" key={i}>
@@ -104,7 +106,7 @@ export default function ProductDetail() {
         {related.length > 0 && (
           <section className="product-detail-related">
             <div className="product-detail-related__inner">
-              <h2 className="product-detail-h2">More in {product.catLabel}</h2>
+              <h2 className="product-detail-h2">{t.productDetail.moreIn} {product.catLabel}</h2>
               <div className="product-detail-related__grid">
                 {related.map((r) => (
                   <Link to={`/products/${r.slug}`} key={r.slug} className="product-detail-related__card">

@@ -73,5 +73,8 @@ export function getProductBySlug(slug) {
 
 export function getRelatedProducts(product, limit = 4) {
   if (!product) return [];
-  return PRODUCTS.filter((p) => p.cat === product.cat && p.slug !== product.slug).slice(0, limit);
+  return PRODUCTS
+    .filter((p) => p.cat === product.cat && p.slug !== product.slug)
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, limit);
 }

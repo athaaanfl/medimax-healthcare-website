@@ -14,46 +14,58 @@ const LINK_HREFS = {
   contact: '/contact',
 };
 
-const MEGA_MENUS = {
-  services: {
-    title: 'Services',
-    columns: [
-      {
-        links: [
-          { label: 'Repair & Maintenance', href: '/services#repair' },
-          { label: 'Equipment Planning & Procurement', href: '/services#procurement' },
-        ],
-      },
-      {
-        links: [
-          { label: 'Distribution', href: '/services#distribution' },
-          { label: 'Manpower & Outsourcing', href: '/services#manpower' },
-        ],
-      },
-    ],
-  },
-  products: {
-    title: 'Categories',
-    columns: [
-      {
-        links: [
-          { label: 'Diagnostic & Monitoring', href: `/products?category=${encodeURIComponent('Diagnostic & Monitoring')}` },
-          { label: 'Medical Consumables', href: `/products?category=${encodeURIComponent('Medical Consumables')}` },
-          { label: 'Life Support', href: `/products?category=${encodeURIComponent('Life Support')}` },
-          { label: 'Furniture & Mobility', href: `/products?category=${encodeURIComponent('Furniture & Mobility')}` },
-        ],
-      },
-      {
-        links: [
-          { label: 'Accessories', href: `/products?category=${encodeURIComponent('Accessories')}` },
-          { label: 'Surgical Instrument', href: `/products?category=${encodeURIComponent('Surgical Instrument')}` },
-          { label: 'Medical Paper', href: `/products?category=${encodeURIComponent('Medical Paper')}` },
-          { label: 'All Products', href: '/products' },
-        ],
-      },
-    ],
-  },
+const SERVICE_ICON_KEYS = {
+  repair: 'Repair & Maintenance',
+  procurement: 'Equipment Planning & Procurement',
+  distribution: 'Distribution',
+  manpower: 'Manpower & Outsourcing',
 };
+
+const SERVICE_MENU_KEYS = [
+  ['repair', '/services#repair'],
+  ['procurement', '/services#procurement'],
+  ['distribution', '/services#distribution'],
+  ['manpower', '/services#manpower'],
+];
+
+const PRODUCT_MENU_KEYS = [
+  ['Diagnostic & Monitoring', `/products?category=${encodeURIComponent('Diagnostic & Monitoring')}`],
+  ['Medical Consumables', `/products?category=${encodeURIComponent('Medical Consumables')}`],
+  ['Life Support', `/products?category=${encodeURIComponent('Life Support')}`],
+  ['Furniture & Mobility', `/products?category=${encodeURIComponent('Furniture & Mobility')}`],
+  ['Accessories', `/products?category=${encodeURIComponent('Accessories')}`],
+  ['Surgical Instrument', `/products?category=${encodeURIComponent('Surgical Instrument')}`],
+  ['Medical Paper', `/products?category=${encodeURIComponent('Medical Paper')}`],
+  ['All Products', '/products'],
+];
+
+function buildMegaMenus(t, lang) {
+  const serviceLinks = SERVICE_MENU_KEYS
+    .map(([key, href]) => ({ key, iconKey: SERVICE_ICON_KEYS[key], label: t.services.sections[key].title, href }))
+    .sort((a, b) => a.label.localeCompare(b.label, lang));
+  const productLinks = PRODUCT_MENU_KEYS
+    .filter(([cat]) => cat !== 'All Products')
+    .map(([cat, href]) => ({ key: cat, iconKey: cat, label: t.categories[cat], href }))
+    .sort((a, b) => a.label.localeCompare(b.label, lang));
+  const allProducts = PRODUCT_MENU_KEYS.find(([cat]) => cat === 'All Products');
+  productLinks.unshift({ key: allProducts[0], iconKey: allProducts[0], label: t.categories[allProducts[0]], href: allProducts[1] });
+  return {
+    services: {
+      title: t.nav.services,
+      columns: [
+        { links: serviceLinks.slice(0, 2) },
+        { links: serviceLinks.slice(2) },
+      ],
+    },
+    products: {
+      title: t.nav.categoriesLabel,
+      columns: [
+        { links: productLinks.slice(0, 4) },
+        { links: productLinks.slice(4) },
+      ],
+    },
+  };
+}
 
 function activeIdForPath(pathname) {
   if (pathname === '/') return 'home';
@@ -72,6 +84,7 @@ export default function SiteNav({ fixed = true }) {
   const [openMega, setOpenMega] = useState(null);
   const { lang, setLang, t } = useLanguage();
   const closeTimer = useRef(null);
+  const MEGA_MENUS = buildMegaMenus(t, lang);
 
   useEffect(() => () => clearTimeout(closeTimer.current), []);
 
@@ -131,8 +144,8 @@ export default function SiteNav({ fixed = true }) {
                           {mega.columns.map((col, ci) => (
                             <div className="site-nav__mega-col" key={ci}>
                               {col.links.map((l) => (
-                                <Link key={l.label} to={l.href} className="site-nav__mega-link" onClick={() => setOpenMega(null)}>
-                                  <CategoryIcon category={l.label} size={16} />
+                                <Link key={l.key} to={l.href} className="site-nav__mega-link" onClick={() => setOpenMega(null)}>
+                                  <CategoryIcon category={l.iconKey} size={16} />
                                   {l.label}
                                 </Link>
                               ))}

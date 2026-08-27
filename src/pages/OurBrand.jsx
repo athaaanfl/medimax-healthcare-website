@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './OurBrand.css';
 
 const MT_NAV = [
@@ -61,22 +62,6 @@ const MT_ACTIVITY = [
   { icon: 'target', tone: 'purple', title: 'Calibration due reminder for Ventilator', time: '2 hrs ago' },
 ];
 
-const MT_FEATURES = [
-  { t: 'Cut Unnecessary Asset Tracking Cost', d: "Revolutionize asset tracking costs with MediTrack's advanced, error-free automation technologies for precision and efficiency." },
-  { t: 'Save Time with Integration', d: "Effortlessly save time with MediTrack's seamless integration, syncing data in real-time across diverse systems." },
-  { t: 'Outshine Your Competitors', d: "Outshine competitors, lead the healthcare frontier with MediTrack's superior performance and safety assurance for success." },
-  { t: 'Smarter Decision Making', d: 'Empower decisions with real-time insights — elevate efficiency and precision with MediTrack for smarter decision-making in healthcare.' },
-];
-
-const MG_POINTS = [
-  'Compatible with major ECG, CTG, and EEG machine brands',
-  'Consistent print clarity for accurate diagnostic records',
-  'Available in thermal and standard recording paper formats',
-  'Various roll and fan-fold sizes to match device models',
-  'Bulk supply for hospitals, clinics, and diagnostic centers',
-  'Global-grade paper quality, on par with brands like Telepaper',
-];
-
 function CheckDot() {
   return (
     <span className="ob-check">
@@ -86,6 +71,9 @@ function CheckDot() {
 }
 
 export default function OurBrand() {
+  const { t } = useLanguage();
+  const MT_FEATURES = t.ourBrand.meditrack.features;
+  const MG_POINTS = t.ourBrand.medigraph.points;
   return (
     <>
       <SiteNav />
@@ -108,8 +96,8 @@ export default function OurBrand() {
               </div>
 
               <div className="ob-area-body">
-                <p className="ob-tagline">Elevate Medical Efficiency</p>
-                <p className="ob-p">Ensure total visibility into medical equipment's location, condition, and usage, optimizing performance, maintenance, and security. This user-friendly platform simplifies complex processes, providing real-time insights, maintenance scheduling, compliance management, and more.</p>
+                <p className="ob-tagline">{t.ourBrand.meditrack.tagline}</p>
+                <p className="ob-p">{t.ourBrand.meditrack.desc}</p>
                 <div className="ob-features">
                   {MT_FEATURES.map((f) => (
                     <div className="ob-feature" key={f.t}>
@@ -232,7 +220,7 @@ export default function OurBrand() {
             </div>
 
             <div className="ob-area-cta">
-              <Link to="/contact" className="ob-cta-link ob-cta-link--centered">Request Demo</Link>
+              <Link to="/contact" className="ob-cta-link ob-cta-link--centered">{t.ourBrand.requestDemo}</Link>
             </div>
             </div>
           </div>
@@ -257,8 +245,8 @@ export default function OurBrand() {
               </div>
 
               <div className="ob-area-body">
-                <p className="ob-tagline">Medical Graph &amp; Recording Paper</p>
-                <p className="ob-p">MediGraph is a medical graph paper brand — supplying ECG, CTG, and EEG recording paper used by hospitals across Indonesia to print patient diagnostic and monitoring records, on par with global producers such as Telepaper.</p>
+                <p className="ob-tagline">{t.ourBrand.medigraph.tagline}</p>
+                <p className="ob-p">{t.ourBrand.medigraph.desc}</p>
                 <div className="ob-points">
                   {MG_POINTS.map((p) => (
                     <div className="ob-point" key={p}>
@@ -270,7 +258,7 @@ export default function OurBrand() {
               </div>
 
               <div className="ob-area-cta">
-                <Link to={`/products?category=${encodeURIComponent('Medical Paper')}`} className="ob-cta-link">Browse Product</Link>
+                <Link to={`/products?category=${encodeURIComponent('Medical Paper')}`} className="ob-cta-link">{t.ourBrand.browseProduct}</Link>
               </div>
             </div>
           </div>
@@ -279,13 +267,13 @@ export default function OurBrand() {
         <section className="ob-final">
           <div className="ob-final__radial" />
           <div className="ob-final__inner">
-            <h2 className="ob-h2">Ready to See It in Action?</h2>
-            <p className="ob-final__desc">Request a live demo of MediTrack or MediGraph and see how it fits your facility's workflow.</p>
+            <h2 className="ob-h2">{t.ourBrand.finalTitle}</h2>
+            <p className="ob-final__desc">{t.ourBrand.finalDesc}</p>
             <div className="ob-final__actions">
-              <Link to="/contact" className="btn btn--teal btn--shadow">Request Demo</Link>
+              <Link to="/contact" className="btn btn--teal btn--shadow">{t.ourBrand.requestDemo}</Link>
               <a href="https://wa.me/6281266000031" className="wa-cta">
                 <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
-                Chat on WhatsApp
+                {t.nav.chatWhatsapp}
               </a>
             </div>
           </div>

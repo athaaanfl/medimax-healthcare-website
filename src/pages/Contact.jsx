@@ -4,17 +4,9 @@ import SiteFooter from '../components/SiteFooter.jsx';
 import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './Contact.css';
 
-const SERVICE_OPTIONS = [
-  'Repair & Maintenance',
-  'Equipment Planning & Procurement',
-  'Distribution',
-  'Manpower & Outsourcing',
-  'MediTrack / MediGraph Demo',
-  'Product Inquiry / RFQ',
-];
-
 export default function Contact() {
   const { t } = useLanguage();
+  const SERVICE_OPTIONS = Object.values(t.contact.serviceOptions);
   const [service, setService] = useState(null);
   const [serviceOpen, setServiceOpen] = useState(false);
   const [sent, setSent] = useState(false);

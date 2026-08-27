@@ -3,10 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 import CategoryIcon from '../components/CategoryIcon.jsx';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import { CATEGORIES, PRODUCTS } from '../data/products.js';
 import './Products.css';
 
 export default function Products() {
+  const { t, lang } = useLanguage();
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category');
   const initialCategory = CATEGORIES.includes(categoryParam) ? categoryParam : 'All Products';
@@ -19,12 +21,17 @@ export default function Products() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [categoryParam]);
 
+  const sortedCategories = useMemo(() => {
+    const rest = CATEGORIES.filter((c) => c !== 'All Products').sort((a, b) => t.categories[a].localeCompare(t.categories[b], lang));
+    return ['All Products', ...rest];
+  }, [t, lang]);
+
   const visibleProducts = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (q) {
-      return PRODUCTS.filter((p) => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
-    }
-    return category === 'All Products' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === category);
+    const matches = q
+      ? PRODUCTS.filter((p) => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
+      : category === 'All Products' ? PRODUCTS : PRODUCTS.filter((p) => p.cat === category);
+    return matches.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [category, query]);
 
   const activeForChips = query.trim() ? null : category;
@@ -53,13 +60,13 @@ export default function Products() {
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search products…"
+                  placeholder={t.products.searchPlaceholder}
                   className="products-search__input"
                 />
               </div>
-              <span className="products-sidebar__label">CATEGORIES</span>
+              <span className="products-sidebar__label">{t.products.categoriesLabel}</span>
               <div className="products-sidebar__chips">
-                {CATEGORIES.map((c) => {
+                {sortedCategories.map((c) => {
                   const active = c === activeForChips;
                   return (
                     <button
@@ -68,7 +75,7 @@ export default function Products() {
                       className={`products-sidebar__item ${active ? 'is-active' : ''}`}
                     >
                       <span className="products-sidebar__icon"><CategoryIcon category={c} size={16} /></span>
-                      {c}
+                      {t.categories[c]}
                     </button>
                   );
                 })}
@@ -98,13 +105,13 @@ export default function Products() {
         <section className="products-final">
           <div className="products-final__radial" />
           <div className="products-final__inner">
-            <h2 className="products-h2">Can't Find What You Need?</h2>
-            <p className="products-final__desc">Our full catalog includes more products than shown here. Talk to our team about your specific equipment requirements.</p>
+            <h2 className="products-h2">{t.products.finalTitle}</h2>
+            <p className="products-final__desc">{t.products.finalDesc}</p>
             <div className="products-final__actions">
-              <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
+              <Link to="/contact" className="btn btn--teal btn--shadow">{t.nav.consultation}</Link>
               <a href="https://wa.me/6281266000031" className="wa-cta">
                 <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
-                Chat on WhatsApp
+                {t.nav.chatWhatsapp}
               </a>
             </div>
           </div>

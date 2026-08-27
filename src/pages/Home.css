@@ -128,9 +128,10 @@
 }
 .home-marquee-label {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--color-text-muted);
-  margin: 0 0 16px;
+  margin: 0 0 24px;
 }
 .home-marquee-mask {
   position: relative;
@@ -147,7 +148,7 @@
   animation-play-state: paused;
 }
 .home-marquee-item {
-  height: 32px;
+  height: 36px;
   margin: 0 26px;
   display: flex;
   align-items: center;

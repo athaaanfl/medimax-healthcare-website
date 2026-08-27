@@ -12,19 +12,19 @@ const SERVICES = [
 ];
 
 const PARTNERS = [
-  { name: 'Mindray', src: '/assets/partners/mindray.svg', scale: 1 },
-  { name: 'B.Braun', src: '/assets/partners/bbraun.svg', scale: 1.6 },
-  { name: '3M', src: '/assets/partners/3m.svg', scale: 1 },
-  { name: 'OneMed', src: '/assets/partners/onemed.svg', scale: 1 },
-  { name: 'OneHealth', src: '/assets/partners/onehealth.svg', scale: 1 },
-  { name: 'BSN Medical', src: '/assets/partners/bsnmedical.svg', scale: 1 },
-  { name: 'Sinocare', src: '/assets/partners/sinocare.svg', scale: 1 },
-  { name: 'Accu-Chek', src: '/assets/partners/accu-chek.svg', scale: 1.6 },
-  { name: 'GEA Medical', src: '/assets/partners/geamedical.svg', scale: 1 },
-  { name: 'Medke', src: '/assets/partners/medke.svg', scale: 1.6 },
-  { name: 'Sutcon Sutures', src: '/assets/partners/sutcon-sutures.svg', scale: 1 },
-  { name: 'Sensi', src: '/assets/partners/sensi.svg', scale: 1 },
-  { name: 'Betadine', src: '/assets/partners/betadine.svg', scale: 1.6 },
+  { name: 'Mindray', src: '/assets/partners/mindray.svg' },
+  { name: 'B.Braun', src: '/assets/partners/bbraun.svg' },
+  { name: '3M', src: '/assets/partners/3m.svg' },
+  { name: 'OneMed', src: '/assets/partners/onemed.svg' },
+  { name: 'OneHealth', src: '/assets/partners/onehealth.svg' },
+  { name: 'BSN Medical', src: '/assets/partners/bsnmedical.svg' },
+  { name: 'Sinocare', src: '/assets/partners/sinocare.svg' },
+  { name: 'Accu-Chek', src: '/assets/partners/accu-chek.svg' },
+  { name: 'GEA Medical', src: '/assets/partners/geamedical.svg' },
+  { name: 'Medke', src: '/assets/partners/medke.svg' },
+  { name: 'Sutcon Sutures', src: '/assets/partners/sutcon-sutures.svg' },
+  { name: 'Sensi', src: '/assets/partners/sensi.svg' },
+  { name: 'Betadine', src: '/assets/partners/betadine.svg' },
 ];
 const PARTNER_LOOP = [...PARTNERS, ...PARTNERS];
 
@@ -38,13 +38,13 @@ const FEATURED = [
 const TESTIMONIALS = [
   { quote: 'The consumable products are consistent in quality and meet our daily operational requirements. Supply and communication have been smooth.', name: 'RS Jasmine', logo: '/assets/hospitals/rsjasmine.svg' },
   { quote: 'The ventilator and syringe pump provided are reliable and support our clinical needs effectively. Delivery was on time and the service team is responsive.', name: 'RS Hj. Bunda Halimah', logo: '/assets/hospitals/rsbundahalimah.svg' },
-  { quote: 'The equipment provided, including microscope, medical beds, and trolleys, are of good quality and meet our hospital standards. The team is professional and responsive.', name: 'RSAL Tanjung Pinang', logo: '/assets/hospitals/rsaltanjungpinang.svg' },
+  { quote: 'The equipment provided, including microscope, medical beds, and trolleys, are of good quality and meet our hospital standards. The team is professional and responsive.', name: 'RSAL Tanjung Pinang', logo: '/assets/hospitals/rsaltanjungpinang.webp' },
   { quote: 'The flow sensor and oxygen sensor are of good quality and compatible with our equipment. The products perform reliably, and the service provided is professional and responsive.', name: 'RS Wongsonegoro Semarang', logo: '/assets/hospitals/rswn.svg' },
 ];
 
 const OTHER_CLIENTS = [
   { name: 'RS Charis Medika', logo: '/assets/hospitals/rscharismedika.svg' },
-  { name: 'RS Budi Kemuliaan Batam', logo: '/assets/hospitals/rsbkbatam.svg' },
+  { name: 'RS Budi Kemuliaan Batam', logo: '/assets/hospitals/rsbkbatam.webp' },
   { name: 'RS BP Batam', logo: '/assets/hospitals/rsbpbatam.svg' },
   { name: 'RS Awal Bros Batam', logo: '/assets/hospitals/rsawalbrosbatam.svg' },
   { name: 'RSUD Tanjungpinang', logo: '/assets/hospitals/rsudtanjungpinang.svg' },
@@ -85,7 +85,7 @@ export default function Home() {
               <div className="home-marquee-track">
                 {PARTNER_LOOP.map((p, i) => (
                   <div className="home-marquee-item" key={p.name + i}>
-                    <img src={p.src} alt={p.name} style={{ height: '100%', maxWidth: 110, objectFit: 'contain', transform: `scale(${p.scale})` }} />
+                    <img src={p.src} alt={p.name} style={{ height: '100%', maxWidth: 140, objectFit: 'contain' }} />
                   </div>
                 ))}
               </div>

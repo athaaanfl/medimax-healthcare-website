@@ -1,33 +1,14 @@
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { useLanguage } from '../i18n/LanguageContext.jsx';
 import './Services.css';
 
-const SECTIONS = [
-  {
-    anchor: 'repair', bg: 'white', reverse: false, title: 'Repair & Maintenance',
-    desc: 'We provide scheduled and corrective maintenance for all major brands of medical equipment, reducing downtime and extending equipment lifespan. Our certified biomedical engineers are deployed across Indonesia.',
-    points: ['Preventive maintenance contracts (PMC)', 'Corrective maintenance & emergency repair', 'Calibration and quality assurance', 'Spare parts, accessories & inventory management', '24/7 technical support hotline'],
-    img: '/assets/services/repair-maintenance.webp',
-  },
-  {
-    anchor: 'procurement', bg: 'cream', reverse: true, title: 'Equipment Planning & Procurement',
-    desc: 'From needs assessment to procurement planning, MediMax guides healthcare facilities through the complete capital equipment acquisition cycle — including e-catalog procurement support in line with Kemenkes and LKPP regulations.',
-    points: ['Hospital equipment needs assessment', 'Technical specifications development', 'Vendor selection & tender assistance', 'e-Catalog & LKPP procurement support', 'Budget planning & ROI analysis'],
-    img: '/assets/services/equipment-planning-procurement.webp',
-  },
-  {
-    anchor: 'distribution', bg: 'white', reverse: false, title: 'Distribution',
-    desc: 'As a licensed distributor (CDAKB-certified) of medical devices, MediMax manages end-to-end supply chain logistics — from sourcing global-brand equipment to last-mile delivery to hospitals, clinics, and puskesmas across Indonesia.',
-    points: ['Cold chain management for sensitive devices', 'Customs clearance & import handling', 'Warehousing & inventory management', 'Distribution to hospitals, clinics & puskesmas', 'After-delivery installation & commissioning'],
-    img: '/assets/services/distribution.webp',
-  },
-  {
-    anchor: 'manpower', bg: 'cream', reverse: true, title: 'Manpower & Outsourcing',
-    desc: 'MediMax supplies qualified biomedical engineering technicians (elektromedik) and healthcare support personnel for hospitals and clinics that need embedded expertise without full-time headcount commitment.',
-    points: ['Certified biomedical engineering technicians', 'Radiology & imaging technician placement', 'Healthcare IT support personnel', 'Flexible contract terms (short/long-term)', 'Performance SLA and supervision'],
-    img: '/assets/services/manpower-outsourcing.webp',
-  },
+const SECTION_META = [
+  { anchor: 'repair', bg: 'white', reverse: false, img: '/assets/services/repair-maintenance.webp' },
+  { anchor: 'procurement', bg: 'cream', reverse: true, img: '/assets/services/equipment-planning-procurement.webp' },
+  { anchor: 'distribution', bg: 'white', reverse: false, img: '/assets/services/distribution.webp' },
+  { anchor: 'manpower', bg: 'cream', reverse: true, img: '/assets/services/manpower-outsourcing.webp' },
 ];
 
 const PATTERNS = {
@@ -62,6 +43,11 @@ const PATTERNS = {
 };
 
 export default function Services() {
+  const { t, lang } = useLanguage();
+  const SECTIONS = SECTION_META
+    .map((m) => ({ ...m, ...t.services.sections[m.anchor] }))
+    .sort((a, b) => a.title.localeCompare(b.title, lang));
+
   return (
     <>
       <SiteNav />
@@ -83,7 +69,7 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-                <Link to="/contact" className="services-cta-link">Request This Service</Link>
+                <Link to="/contact" className="services-cta-link">{t.services.requestService}</Link>
               </div>
               <div className="services-section__photo">
                 <img src={s.img} alt={s.title} />
@@ -95,13 +81,13 @@ export default function Services() {
         <section className="services-final">
           <div className="services-final__radial" />
           <div className="services-final__inner">
-            <h2 className="services-h2">Not Sure Which Service You Need?</h2>
-            <p className="services-final__desc">Talk to our team for a free consultation. We'll help you identify the right solution for your facility.</p>
+            <h2 className="services-h2">{t.services.finalTitle}</h2>
+            <p className="services-final__desc">{t.services.finalDesc}</p>
             <div className="services-final__actions">
-              <Link to="/contact" className="btn btn--teal btn--shadow">Consultation</Link>
+              <Link to="/contact" className="btn btn--teal btn--shadow">{t.nav.consultation}</Link>
               <a href="https://wa.me/6281266000031" className="wa-cta">
                 <img src="/assets/whatsapp-color.svg" alt="" className="wa-cta__icon" />
-                Chat on WhatsApp
+                {t.nav.chatWhatsapp}
               </a>
             </div>
           </div>
