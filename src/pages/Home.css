@@ -134,7 +134,7 @@
   width: max-content;
   animation: medimax-marquee 45s linear infinite;
 }
-.home-trusted:hover .home-marquee-track {
+.home-marquee-track:has(.home-marquee-item:hover) {
   animation-play-state: paused;
 }
 .home-marquee-item {

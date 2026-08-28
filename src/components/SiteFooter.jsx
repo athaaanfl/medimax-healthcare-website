@@ -66,6 +66,10 @@ export default function SiteFooter() {
             <a href="/documents/NIB-Business-Registration.pdf" download className="site-footer__pill">NIB</a>
             <a href="/documents/CDAKB-Certificate.pdf" download className="site-footer__pill">CDAKB</a>
           </div>
+          <span className="site-footer__inaproc">
+            <img src="/assets/inaproc.webp" alt="INAPROC" className="site-footer__inaproc-logo" />
+            <span className="site-footer__inaproc-label">Registered</span>
+          </span>
         </div>
 
         <div className="site-footer__bottom">
