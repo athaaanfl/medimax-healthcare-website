@@ -19,7 +19,7 @@ export const translations = {
       'Furniture & Mobility': 'Furniture & Mobility',
       Accessories: 'Accessories',
       'Surgical Instrument': 'Surgical Instrument',
-      'Medical Paper': 'Medical Paper',
+      'Medical Chart Paper': 'Medical Chart Paper',
     },
     footer: {
       blurb: 'Trusted Partner for Medical Equipment Solutions in Indonesia',
@@ -199,7 +199,7 @@ export const translations = {
       'Furniture & Mobility': 'Furnitur & Mobilitas',
       Accessories: 'Aksesoris',
       'Surgical Instrument': 'Instrumen Bedah',
-      'Medical Paper': 'Kertas Medis',
+      'Medical Chart Paper': 'Kertas Grafik Medis',
     },
     footer: {
       blurb: 'Mitra Terpercaya untuk Solusi Peralatan Medis di Indonesia',

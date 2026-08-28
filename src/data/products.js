@@ -26,7 +26,7 @@ export const CATEGORIES = [
   'Furniture & Mobility',
   'Accessories',
   'Surgical Instrument',
-  'Medical Paper',
+  'Medical Chart Paper',
 ];
 
 export const PRODUCTS = [
@@ -48,9 +48,9 @@ export const PRODUCTS = [
   P('Accessories', 'Chest Electrode', 'Disposable adhesive chest electrodes for ECG and patient monitoring applications.', stock, 'chest-electrode'),
   P('Surgical Instrument', 'Instrument Set', 'Stainless steel surgical instrument sets for various procedures, autoclavable.', stock, 'instrument-set'),
   P('Surgical Instrument', 'Suture', 'Absorbable and non-absorbable surgical sutures in various materials and USP sizes.', stock, 'suture'),
-  P('Medical Paper', 'ECG Paper', 'Thermal recording paper for ECG machines, available in 50mm–210mm widths.', stock, 'ecg-paper'),
-  P('Medical Paper', 'CTG Paper', 'Fetal heart rate and uterine contraction recording paper for CTG/fetal monitors.', stock, 'ctg-paper'),
-  P('Medical Paper', 'EEG Paper', 'Z-fold recording paper for EEG machines, compatible with major brands.', stock, 'eeg-paper'),
+  P('Medical Chart Paper', 'ECG Paper', 'Thermal recording paper for ECG machines, available in 50mm–210mm widths.', stock, 'ecg-paper'),
+  P('Medical Chart Paper', 'CTG Paper', 'Fetal heart rate and uterine contraction recording paper for CTG/fetal monitors.', stock, 'ctg-paper'),
+  P('Medical Chart Paper', 'EEG Paper', 'Z-fold recording paper for EEG machines, compatible with major brands.', stock, 'eeg-paper'),
   P('Diagnostic & Monitoring', 'Blood Pressure', 'Manual and digital sphygmomanometers with adult and pediatric cuffs for accurate blood pressure readings.', stock, 'blood-pressure'),
   P('Life Support', 'Fogarty Catheter', 'Balloon-tip embolectomy catheter with silastic balloon and radiopaque marker for vascular procedures.', stock, 'fogarthy-catheter'),
   P('Medical Consumables', 'Drape', 'Sterile surgical field cover, impermeable to blood and fluids, for maintaining a sterile operative site.', stock, 'drape'),

@@ -9,7 +9,7 @@ const PRODUCT_CATEGORIES = [
   'Furniture & Mobility',
   'Accessories',
   'Surgical Instrument',
-  'Medical Paper',
+  'Medical Chart Paper',
 ];
 
 export default function SiteFooter() {

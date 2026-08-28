@@ -258,7 +258,7 @@ export default function OurBrand() {
               </div>
 
               <div className="ob-area-cta">
-                <Link to={`/products?category=${encodeURIComponent('Medical Paper')}`} className="ob-cta-link">{t.ourBrand.browseProduct}</Link>
+                <Link to={`/products?category=${encodeURIComponent('Medical Chart Paper')}`} className="ob-cta-link">{t.ourBrand.browseProduct}</Link>
               </div>
             </div>
           </div>

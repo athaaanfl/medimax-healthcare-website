@@ -35,7 +35,7 @@ const PRODUCT_MENU_KEYS = [
   ['Furniture & Mobility', `/products?category=${encodeURIComponent('Furniture & Mobility')}`],
   ['Accessories', `/products?category=${encodeURIComponent('Accessories')}`],
   ['Surgical Instrument', `/products?category=${encodeURIComponent('Surgical Instrument')}`],
-  ['Medical Paper', `/products?category=${encodeURIComponent('Medical Paper')}`],
+  ['Medical Chart Paper', `/products?category=${encodeURIComponent('Medical Chart Paper')}`],
   ['All Products', '/products'],
 ];
 
